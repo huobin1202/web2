@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/app.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/font/font-awesome-pro-v6-6.2.0/css/all.min.css" />
+    <title>BMT </title>
+</head>
+
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-middle-left">
+                    <div class="header-logo">
+                        <a href="" id="logo">
+                            <img src="image/logo.webp" alt="BMT">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-middle-center">
+                    <form action="" class="form-search">
+                        <span class="search-btn">
+                            <i class="fa-light fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-search-input" id="searchBox" placeholder="Tìm kiếm xe... "
+                            onkeyup="searchProducts()">
+                        <button class="filter-btn"><i class="fa-light fa-filter-list"></i></i><span
+                                style="font-size: 14px;">Lọc</span></button>
+                    </form>
+                </div>
+                <div class="header-middle-right">
+                    <ul class="header-middle-right-list">
+                        <li class="header-middle-right-item dropdown open">
+                            <i class='bx bx-user'></i>
+                            <div class="auth-container">
+                                <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                                <span class="text-tk">Tài khoản <i class="fa-sharp fa-solid fa-caret-down"></i></span>
+                            </div>
+
+                        </li>
+                        <!-- The Modal -->
+                        <button id="cart">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                            Giỏ Hàng
+                        </button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Giỏ Hàng</h5>
+                                    <span class="close">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="cart-row">
+                                        <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                                        <span class="cart-price cart-header cart-column">Giá</span>
+                                        <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                                    </div>
+                                    <div class="cart-items">
+
+                                    </div>
+                                    <div class="cart-total">
+                                        <strong class="cart-total-title">Tổng Cộng:</strong>
+                                        <span class="cart-total-price">0VNĐ</span>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary close-footer">Đóng</button>
+                                    <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="advanced-search">
+        <div class="container">
+            <div class="advanced-search-category">
+                <span>Phân loại </span>
+                <select name="" id="advancesearch-category-select" onchange="searchProducts()">
+                    <option>Tất cả</option>
+                    <option>Dòng Ninja</option>
+                    <option>Dòng Z</option>
+                    <option>Dòng KLX</option>
+                </select>
+            </div>
+            <div class="advanced-search-price">
+                <span>Giá từ</span>
+                <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+                <span>đến</span>
+                <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+                <button id="advanced-search-price-btn"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+            </div>
+            <div class="advanced-search-control">
+                <button id="sort-ascending" onclick="searchProducts(1)"><i
+                        class="fa-regular fa-arrow-up-short-wide"></i></button>
+                <button id="sort-descending" onclick="searchProducts(2)"><i
+                        class="fa-regular fa-arrow-down-wide-short"></i></button>
+                <button id="reset-search" onclick="searchProducts(0)"><i
+                        class="fa-light fa-arrow-rotate-right"></i></button>
+                <button onclick="closeSearchAdvanced()"><i class="fa-light fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="green-line-header"></div>
+    <nav class="header-bottom">
+        <div class="container">
+            <ul class="menu-list">
+                <li class="menu-list-item"><a href="" class="menu-link">TRANG CHỦ</a></li>
+                <li class="menu-list-item"><a href="" class="menu-link">DÒNG NINJA</a></li>
+                <li class="menu-list-item"><a href="" class="menu-link">DÒNG Z</a></li>
+                <li class="menu-list-item"><a href="" class="menu-link">DÒNG KLX</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="container">
+
+        </div>
+        <div class="container" id="trangchu">
+            <div class="slider-container">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+
+                        <img src="image/web1.jpg">
+
+                    </div>
+                    <div class="mySlides fade">
+
+                        <img src="image/web2.jpg">
+
+                    </div>
+                    <div class="mySlides fade">
+
+                        <img src="image/web3.png">
+
+                    </div>
+                    <div class="mySlides fade">
+
+                        <img src="image/web4.jpg">
+
+                    </div>
+                    <div class="dot-wrapper">
+
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+
+                    </div>
+                    <a class="prev" onclick="prevSlide()">&#10094;</a>
+                    <a class="next" onclick="showSlides()">&#10095;</a>
+                </div>
+            </div>
+            <div class="home-service" id="home-service">
+                <div class="home-service-item">
+                    <div class="home-service-item-icon">
+                        <i class="fa-light fa-person-carry-box"></i>
+                    </div>
+                    <div class="home-service-item-content">
+                        <h4 class="home-service-item-content-h">GIAO HÀNG NHANH</h4>
+                        <p class="home-service-item-content-desc">Cho tất cả đơn hàng</p>
+                    </div>
+                </div>
+                <div class="home-service-item">
+                    <div class="home-service-item-icon">
+                        <i class="fa-light fa-shield-heart"></i>
+                    </div>
+                    <div class="home-service-item-content">
+                        <h4 class="home-service-item-content-h">SẢN PHẨM AN TOÀN</h4>
+                        <p class="home-service-item-content-desc">Cam kết chất lượng</p>
+                    </div>
+                </div>
+                <div class="home-service-item">
+                    <div class="home-service-item-icon">
+                        <i class="fa-light fa-headset"></i>
+                    </div>
+                    <div class="home-service-item-content">
+                        <h4 class="home-service-item-content-h">HỖ TRỢ 24/7</h4>
+                        <p class="home-service-item-content-desc">Tất cả ngày trong tuần</p>
+                    </div>
+                </div>
+                <div class="home-service-item">
+                    <div class="home-service-item-icon">
+                        <i class="fa-light fa-circle-dollar"></i>
+                    </div>
+                    <div class="home-service-item-content">
+                        <h4 class="home-service-item-content-h">HOÀN LẠI TIỀN</h4>
+                        <p class="home-service-item-content-desc">Nếu không hài lòng</p>
+                    </div>
+                </div>
+            </div>
+            <div class="home-title-block" id="home-title">
+                <h2 class="home-title">MẪU XE ĐẶC TRƯNG</h2>
+                <div class="border-line"></div>
+            </div>
+
+            <div class="home-products" id="home-products">
+            </div>
+
+
+
+            <div class="page-nav">
+                <ul class="page-nav-list">
+                    <div class="grid-container" id="product-list">
+                        <div class="card page-1">
+                            <a href="">
+                                <img src="image/ninja-650.png" alt=" NINJA® 650">
+                                <h4>MỚI 2023</h4>
+                                <h3>NINJA® 650</h3>
+                                <div class="greenSpacer"></div>
+                                <div class="price">GIÁ BÁN LẺ 210.000.000đ</div>
+                                <button>Thêm vào giỏ hàng</button>
+                            </a>
+                        </div>
+
+                        <div class="card page-1">
+                            <img src="image/ninja-1000sx.png" alt="NINJA® 1000SX">
+                            <h4>MỚI 2023</h4>
+                            <h3>NINJA® 1000SX</h3>
+                            <div class="greenSpacer"></div>
+                            <div class="price">GIÁ BÁN LẺ 330.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-1">
+                            <img src="image/ninja-zx4r.png" alt="NINJA® ZX™-4R">
+                            <h4>MỚI 2022</h4>
+                            <h3>NINJA® ZX™-4R</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 150.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+
+                        </div>
+
+                        <div class="card page-1">
+                            <img src="image/ninja-h2r.png" alt="NINJA H2®R">
+                            <h4>MỚI 2022</h4>
+                            <h3>NINJA H2®R</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 1.400.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+                        <div class="card page-1">
+                            <img src="image/ninja-e1.png" alt="NINJA® e-1">
+                            <h4>HOÀN TOÀN MỚI 2024</h4>
+                            <h3>NINJA® e-1</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 490.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+                        <div class="card page-1">
+                            <img src="image/z-h2.png" alt="Z H2">
+                            <h4>MỚI 2022</h4>
+                            <h3>Z H2</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 210.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <!-- Page 2 Products -->
+                        <div class="card page-2">
+                            <img src="/image/z125-pro.png" alt="Z 500">
+                            <h4>2021</h4>
+                            <h3>Z125 PRO</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 90.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-2">
+                            <img src="/image/z500.png" alt="Z 500">
+                            <h4>2023</h4>
+                            <h3>Z500</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 120.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+
+                        <div class="card page-2">
+                            <img src="/image/z650rs.png" alt="Z 500">
+                            <h4>MỚI 2023</h4>
+                            <h3>Z650RS</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 150.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+
+                        <div class="card page-2">
+                            <img src="/image/z7-hybrid.png" alt="Z 500">
+                            <h4>HOÀN TOÀN MỚI 2024</h4>
+                            <h3>Z7 HYBRID</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 670.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-2">
+                            <img src="/image/klx-110r.png" alt="Z 500">
+                            <h4>2023</h4>
+                            <h3>KLX®110R</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 50.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-2">
+                            <img src="/image/klx-230.png" alt="Z 500">
+                            <h4>2021</h4>
+                            <h3>KLX®230</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 30.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+                        <!-- Page 3 Products -->
+                        <div class="card page-3">
+                            <img src="image/klx-230r.png" alt="KLX 110 R">
+                            <h4>MỚI 2022</h4>
+
+                            <h3>KLX®230R</h3>
+
+                            <div class="greenSpacer"></div>
+                            <div class="price">GIÁ BÁN LẺ 65.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+                        <div class="card page-3">
+                            <img src="image/klx-230sm.png" alt="KLX 110 R">
+                            <h4>MỚI 2023</h4>
+                            <h3>KLX®230SM</h3>
+                            <div class="greenSpacer"></div>
+                            <div class="price">GIÁ BÁN LẺ 80.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-3">
+                            <img src="image/klx-300.png" alt="KLX 110 R">
+                            <h4>2022</h4>
+                            <h3>KLX®300</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 73.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                        <div class="card page-3">
+                            <img src="image/klx-300sm.png" alt="KLX 110 R">
+                            <h4>2023</h4>
+                            <h3>KLX®300SM</h3>
+                            <div class="greenSpacer"></div>
+
+                            <div class="price">GIÁ BÁN LẺ 85.000.000đ</div>
+                            <button>Thêm vào giỏ hàng</button>
+                        </div>
+
+                    </div>
+                    <div class="pagination">
+                        <button id="prevBtn" onclick="changePage(-1)" disabled>&#10094;</button>
+                        <div id="pageNumbers" class="page-numbers"></div>
+                        <button id="nextBtn" onclick="changePage(1)">&#10095;</button>
+                    </div>
+                </ul>
+
+            </div>
+        </div>
+
+    </main>
+
+    <div class="green-line-header"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-top-content">
+                    <div class="footer-top-img">
+                        <img src="image/logo.webp" alt="">
+                    </div>
+                    <div class="footer-top-subbox">
+                        <div class="footer-top-subs">
+                            <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                            <p class="footer-top-subs-text">Nhận tin nhắn mới nhất từ chúng tôi</p>
+                        </div>
+                        <form class="form-ground">
+                            <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
+                            <button class="form-ground-btn">
+                                <span>ĐĂNG KÝ</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-area">
+            <div class="container">
+                <div class="widget-row">
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Về chúng tôi</h3>
+                        <div class="widget-row-col-content">
+                            <p>BMT là thương hiệu được thành lập năm 2024 với
+                                tiêu chí đặt chất lượng sản phẩm lên hàng đầu </p>
+                        </div>
+                        <div class="widget-social">
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-facebook-f"></i>
+
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-linkedin-in"></i>
+
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-whatsapp"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Liên kết</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Về chúng tôi</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Điều khoản</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Tin tức</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Sản phẩm</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Dòng Ninja</span>
+
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Dòng Z</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Dòng KLX</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <div class="contact">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="contact-content contact-item-phone">
+                                    <span>0123 456 789</span>
+                                    <br>
+                                    <span>0987 654 321</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="contact-content conatct-item-email">
+                                    <span>abc@domain.com</span><br />
+                                    <span>infoabc@domain.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="copyright-content">
+                Copyright © 2024 BMTshop, VietNam.
+            </div>
+        </div>
+    </div>
+    <script src="js/product.js"></script>
+    <script src="js/addtocart.js"></script>
+    <script src="js/innit.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ssbutton.js"></script>
+    <script src="js/phantrang.js"></script>
+    <script src="js/toast-message.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+
+</body>
+
+</html>
